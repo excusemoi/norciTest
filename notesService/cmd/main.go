@@ -1,7 +1,6 @@
 package main
 
 import (
-	"github.com/joho/godotenv"
 	"github.com/norciTest/notesService/internal/api/service"
 	"github.com/norciTest/notesService/internal/config"
 	"github.com/norciTest/notesService/internal/storage/pg"
@@ -15,10 +14,6 @@ func main() {
 		s       = &service.Service{}
 		err     error
 	)
-
-	if err = godotenv.Load(filepath.Join(".env")); err != nil {
-		log.Fatal(err)
-	}
 
 	if err = config.InitConfig(filepath.Join("configs")); err != nil {
 		log.Fatal(err)

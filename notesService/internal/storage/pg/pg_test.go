@@ -1,7 +1,6 @@
 package pg
 
 import (
-	"github.com/joho/godotenv"
 	"github.com/norciTest/notesService/internal/config"
 	"github.com/norciTest/notesService/internal/model"
 	"path/filepath"
@@ -15,8 +14,6 @@ func TestPg(t *testing.T) {
 		s   = &Storage{}
 		err error
 	)
-
-	godotenv.Load(filepath.Join("..", "..", "..", ".env"))
 
 	if err = config.InitConfig(filepath.Join("..", "..", "..", "configs")); err != nil {
 		t.Fatal(err)

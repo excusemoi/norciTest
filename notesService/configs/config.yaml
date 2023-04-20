@@ -3,3 +3,4 @@ postgres:
   port: 5432
   name: postgres
   login: admin
+  password: root

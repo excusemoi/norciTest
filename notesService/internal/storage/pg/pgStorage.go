@@ -4,7 +4,6 @@ import (
 	"github.com/go-pg/pg/v10"
 	"github.com/norciTest/notesService/internal/model"
 	"github.com/spf13/viper"
-	"os"
 )
 
 type Storage struct {
@@ -18,7 +17,7 @@ func (s *Storage) Init() error {
 	)
 	if options, err = pg.ParseURL("postgres://" +
 		viper.GetString("postgres.login") + ":" +
-		os.Getenv("POSTGRES_PASSWORD") + "@" +
+		viper.GetString("postgres.password") + "@" +
 		viper.GetString("postgres.host") + ":" +
 		viper.GetString("postgres.port") + "/" +
 		viper.GetString("postgres.name") + "?sslmode=disable"); err != nil {
